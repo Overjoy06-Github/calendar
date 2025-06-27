@@ -3,7 +3,7 @@ from customtkinter import *
 from datetime import datetime
 import json
 
-ICON_PATH = os.path.abspath("calendar-app/icon.ico")
+ICON_PATH = os.path.abspath("icon.ico")
 app = CTk()
 screen_width = app.winfo_screenwidth()
 screen_height = app.winfo_screenheight()
@@ -41,7 +41,7 @@ def calendaryes(current_month: int = None, current_year = datetime.now().year):
         def set_event(day):
             global events_window, events_window_key
             key = f"{current_month}-{day}"
-            filename = 'calendar-app/data.json'
+            filename = 'data.json'
 
             if events_window is not None and events_window.winfo_exists():
                 if events_window_key != key:
@@ -138,7 +138,18 @@ def calendaryes(current_month: int = None, current_year = datetime.now().year):
                 if text == " ":
                     label = CTkLabel(calendar_frame, text=text, fg_color="#7E99A3", bg_color="#A5BFCC", font=("Consolas", 12), corner_radius=6, width=10)
                 else:
-                    label = CTkButton(calendar_frame, text=text, fg_color="#7E99A3", bg_color="#A5BFCC", font=("Consolas", 12), corner_radius=6, width=10, command=lambda d=day: set_event(d))
+                    with open("data.json") as json_data:
+                        try:
+                            data = json.load(json_data)
+                            key = f"{current_month}-{day}"
+                            if len(data[key]) > 0 and len(data[key]) < 3:
+                                label = CTkButton(calendar_frame, text=text, fg_color="#FFC300", bg_color="#A5BFCC", font=("Consolas", 12), corner_radius=6, width=10, command=lambda d=day: set_event(d))
+                            elif len(data[key]) >= 3:
+                                label = CTkButton(calendar_frame, text=text, fg_color="#FF5733", bg_color="#A5BFCC", font=("Consolas", 12), corner_radius=6, width=10, command=lambda d=day: set_event(d))
+                            else:
+                                label = CTkButton(calendar_frame, text=text, fg_color="#7E99A3", bg_color="#A5BFCC", font=("Consolas", 12), corner_radius=6, width=10, command=lambda d=day: set_event(d))
+                        except KeyError:
+                            label = CTkButton(calendar_frame, text=text, fg_color="#7E99A3", bg_color="#A5BFCC", font=("Consolas", 12), corner_radius=6, width=10, command=lambda d=day: set_event(d))
                 label.grid(row=week_idx + 1, column=day_idx, padx=5, pady=5, sticky="nsew")
 
     except Exception as e:
