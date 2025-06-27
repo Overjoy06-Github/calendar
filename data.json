@@ -1,5 +1,20 @@
 {
+    "1-1": [
+        "New Year's Day"
+    ],
+    "2-14": [
+        "Valentine's Day"
+    ],
     "7-10": [
         "My Birthday"
+    ],
+    "10-31": [
+        "Halloween"
+    ],
+    "12-25": [
+        "Christmas Day"
+    ],
+    "12-31": [
+        "New Year's Eve"
     ]
 }
