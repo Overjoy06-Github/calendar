@@ -1,20 +1,21 @@
 {
-    "1-1": [
-        "New Year's Day"
-    ],
-    "2-14": [
-        "Valentine's Day"
-    ],
-    "7-10": [
+    "2025-10-7": [
         "My Birthday"
     ],
-    "10-31": [
-        "Halloween"
+    "2025-31-12": [
+        "Christmas"
     ],
-    "12-25": [
-        "Christmas Day"
+    "2025-1-1": [
+        "New Year's"
     ],
-    "12-31": [
-        "New Year's Eve"
+    "0-1-1": [
+        "The Beginning (im too lazy to do the BC bs)"
+    ],
+    "2001-11-9": [
+        "RIP ",
+        "\u2708\u2708"
+    ],
+    "2025-28-6": [
+        "Sister's Birthday"
     ]
 }
