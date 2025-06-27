@@ -1,4 +1,4 @@
-# calendar-app
+# calendar
 
 My first ever calendar app using `customtkinter`
 
